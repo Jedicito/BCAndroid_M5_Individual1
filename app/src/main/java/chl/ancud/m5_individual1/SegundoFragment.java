@@ -4,9 +4,11 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import chl.ancud.m5_individual1.databinding.FragmentSegundoBinding;
 
@@ -63,6 +65,19 @@ public class SegundoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentSegundoBinding.inflate(getLayoutInflater(), container, false);
+
+        binding.btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("fragmentos", "onClick/onCreateView/SegundoFragment");
+                Toast.makeText(getContext(), mParam1, Toast.LENGTH_LONG).show();
+                getParentFragmentManager().popBackStackImmediate();
+
+            }
+        });
+
+        binding.wvPagina.loadUrl(mParam1);
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_segundo, container, false);
     }

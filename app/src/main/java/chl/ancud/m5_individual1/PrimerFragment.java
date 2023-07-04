@@ -71,7 +71,9 @@ public class PrimerFragment extends Fragment {
                 getActivity().getSupportFragmentManager().beginTransaction().add(
                         R.id.fragmentContainerView
                         , SegundoFragment.newInstance(URL, "")
-                        , "Primer Fragmento").commit();
+                        , "primer_fragmento")
+                        .addToBackStack("primer_fragmento")
+                        .commit();
             }
         });
         // Inflate the layout for this fragment
